@@ -1,0 +1,3340 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; 
+    font-size: 16px;
+    line-height: 1.6; 
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+}
+
+p {
+    font-weight: 400;  
+    margin-bottom: 12px;
+}
+
+
+/*Navigacioni meni*/
+
+header {
+    background: linear-gradient(to top, #cbeeff, #ffffff); 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 20px 24px;
+}
+
+
+
+li{
+    list-style: none;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.3rem
+}
+
+.navbar{
+    min-width: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+}
+ 
+.nav-link {
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem; 
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%; 
+}
+
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; 
+    width: 0;
+    height: 2px;
+    background-color: #4dd0e1; 
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #0288d1; 
+}
+
+.nav-item .highlight {
+    background-color: #4dd0e1;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+.nav-item .highlight:hover {
+    background-color: #0288d1;
+    box-shadow: 0px 4px 10px rgba(2, 136, 209, 0.5);
+    transform: scale(1.1); 
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    background-color: black;
+}
+
+.hamburger .bar {
+    width: 30px; 
+    height: 4px;
+}
+
+.responsive-logo {
+    max-width: 150px; 
+    height: auto;
+    display: block;
+}
+.nav-branding {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.nav-branding img {
+    max-width: 200px; 
+}
+
+.nav-branding img {
+    max-width: 200px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-branding img:hover {
+    transform: scale(1.05); 
+}
+
+/* Stilizacija dugmeta "Pflegekräfte Bewerben" u navigacionom meniju */
+
+.nav-item .job-highlight {
+    background-color: #0288d1; 
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(2, 136, 209, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item .job-highlight::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+
+.nav-item .job-highlight:hover {
+    background-color: #4dd0e1; 
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(77, 208, 225, 0.6);
+}
+
+
+/*Responzivnost za telefon za navigacioni meni*/
+
+@media(max-width: 768px){
+    .hamburger{
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 95px;
+        gap: 0;
+        flex-direction: column;
+        background-color: whites;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 30px 0;
+    }
+
+    .nav-item{
+        margin: 16px 0;
+    }
+
+    .nav-menu.active{
+        left: 0; 
+        margin-top: 58px;
+    }
+
+    .nav-link {
+        font-size: 1.6rem; 
+        font-weight: bold; 
+        color: #0288d1; 
+        text-transform: uppercase; 
+        text-decoration: none; 
+        padding: 10px 0; 
+        position: relative;
+        border-bottom: 2px solid transparent; 
+        transition: color 0.2s ease-in-out, border-bottom 0.2s ease-in-out; 
+    }
+    
+    .nav-link:active,
+    .nav-link:focus {
+        color: #4dd0e1; 
+        border-bottom: 2px solid #4dd0e1; 
+        outline: none; 
+    }
+    
+    /* Stil za dugme "Kontakt" */
+    .nav-item .highlight {
+        font-size: 1.6rem;
+        padding: 10px 20px;
+        background-color: #0288d1; 
+        color: white; 
+        border-radius: 25px; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.15s ease-in-out; 
+    }
+    
+    .nav-item .highlight:active {
+        background-color: #4dd0e1; 
+        transform: scale(1.05); 
+    }
+
+    .hamburger .bar {
+        width: 35px;
+        height: 5px;
+    }
+
+    /*Za dumge job*/
+
+    .nav-item .job-highlight {
+        font-size: 1.4rem; 
+        padding: 8px 16px;
+        border-radius: 20px;
+        width: 70%;
+        margin: 8px auto; 
+        background-color: #0288d1;
+        box-shadow: 0px 4px 10px rgba(2, 136, 209, 0.4);
+    }
+
+    .nav-item .job-highlight:hover {
+        background-color: #4dd0e1;
+        transform: scale(1.05);
+        box-shadow: 0px 6px 15px rgba(77, 208, 225, 0.5);
+    }
+
+}
+
+/*Hero sekcija*/
+
+
+/* Hero sekcija */
+.hero-section {
+    background-image: url('SVE Slike/Slike bas gotove za website/Slika jl pflege021 dalle bez donje plave linije.png'); 
+    background-size: cover;
+    background-position: center left; 
+    background-repeat: no-repeat;
+    min-height: 100vh; 
+    display: flex;
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    padding: 5% 8%; 
+    position: relative;
+    color: white;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 40%; 
+    margin: 0; 
+    text-align: center;
+    margin-left: 4%;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem); 
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); 
+    color: #ffffff;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 1.5vw, 1.5rem); 
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); 
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 1rem; 
+    margin-top: 1rem;
+    justify-content: center;
+    animation: fadeInLeft 1s ease-in-out;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #4dd0e1; 
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-btn:hover {
+    background-color: #0288d1; 
+    box-shadow: 0px 6px 15px rgba(2, 136, 209, 0.7);
+    transform: scale(1.05);
+}
+
+.hero-btn.outline {
+    background: transparent;
+    border: 2px solid #4dd0e1;
+    color: #4dd0e1;
+}
+
+.hero-btn.outline:hover {
+    background-color: #4dd0e1;
+    color: white;
+}
+
+/*Responzivnost hero sekcije*/
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        background-position: center;
+    }
+
+    .hero-content {
+        max-width: 90%;
+        margin: 0 auto;
+        margin-top: 10%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 40px; 
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        margin-top: 40%; 
+    }
+
+    .hero-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+        border-radius: 25px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s ease-in-out;
+        background-color: white; 
+        z-index: 999; 
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+}
+
+/* Poboljšanja za veće ekrane hero sekcije */
+
+@media (min-width: 1600px) {
+    .hero-section {
+        background-size: cover;
+        background-position: center left; 
+        padding: 8% 12%;
+    }
+
+    .hero-content {
+        max-width: 50%;
+        text-align: center;
+        margin-left: -4%;
+    }
+
+    .hero-content h1 {
+        font-size: 5rem; 
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 2rem; 
+        line-height: 2.2;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+        gap: 2rem; 
+        justify-content: center;
+    }
+
+    .hero-btn {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+    }
+}
+
+
+/*Why sekcija*/
+
+.why-choose-us {
+    padding: 5rem 2rem;
+    background-color: #d8f2ff;
+    text-align: center;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+.section-title1 {
+    font-size: 2.5rem;
+    color: #0288d1;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    max-width: 350px;
+    text-align: center;
+    padding: 2rem;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+}
+
+.feature-img img {
+    width: 100%;
+    border-radius: 15px;
+    height: auto;
+}
+
+.feature-content {
+    padding: 1.5rem;
+}
+
+.feature-content h3 {
+    font-size: 1.8rem;
+    color: #4dd0e1;
+    margin-bottom: 1rem;
+}
+
+.feature-content p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+    .features-grid {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+}
+
+
+/*Trece sekcija brojevi*/
+
+.numbers-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(to right, #0288d1, #4dd0e1);
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 2s ease-in-out;
+}
+
+.numbers-section::before,
+.numbers-section::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out alternate;
+}
+
+.numbers-section::before {
+    top: 5%;
+    left: 10%;
+    width: 150px;
+    height: 150px;
+}
+
+.numbers-section::after {
+    bottom: 10%;
+    right: 15%;
+    width: 100px;
+    height: 100px;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }
+}
+
+
+
+.section-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.numbers-subtitle {
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+    color: #e0f7fa;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.numbers-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.number-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 250px;
+    backdrop-filter: blur(10px);
+}
+
+.number-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.3);
+}
+
+.number-item.highlight {
+    border: 2px solid #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.number-item h3 {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    font-weight: 400;
+    color: #e0f7fa;
+}
+
+.rating .stars {
+    font-size: 2rem;
+    color: gold;
+    margin-top: 1rem;
+    letter-spacing: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .numbers-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .number-item {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .numbers-grid {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+
+    }
+
+    .number-item {
+        width: 100%;
+        max-width: 350px;
+    }
+
+}
+
+/*Footer*/ 
+
+.site-footer {
+    background: radial-gradient(circle, rgba(2, 136, 209, 0.9) 0%, rgba(0, 60, 143, 0.9) 100%),
+                url('Sve Slike/Slike bas gotove za website/Pozadina 1 footer krajnja.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 6rem 2rem;
+    text-align: center;
+    font-family: 'Lora', serif;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efekat lebdećih elemenata u pozadini */
+.site-footer::before,
+.site-footer::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float 6s infinite alternate;
+}
+
+.site-footer::before {
+    top: -50px;
+    left: -80px;
+    width: 150px;
+    height: 150px;
+}
+
+.site-footer::after {
+    bottom: -50px;
+    right: -80px;
+    width: 100px;
+    height: 100px;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(30px); }
+}
+
+/* Glavni kontejner u footeru */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo sekcija */
+.footer-logo img {
+    max-width: 150px;
+}
+
+/* Sekcija za informacije */
+.footer-info, .footer-links, .footer-newsletter {
+    max-width: 300px;
+}
+
+.footer-info h3, .footer-links h3, .footer-newsletter h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #e0f7fa;
+    text-transform: uppercase;
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-info p, .footer-links ul, .footer-newsletter p {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    line-height: 1.8;
+}
+
+/* Linkovi */
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-links ul li a:hover {
+    color: #cbeeff;
+    text-decoration: underline;
+}
+
+/* Newsletter sekcija */
+.footer-about {
+    max-width: 300px;
+}
+
+.footer-about h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #e0f7fa;
+    text-transform: uppercase;
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-about p {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    line-height: 1.8;
+}
+
+.footer-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #fff;
+    color: #0288d1;
+    text-decoration: none; 
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-link:hover {
+    background: #cbeeff;
+    color: #0288d1;
+}
+
+/* Donji deo footera */
+.footer-bottom {
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 1rem;
+    font-size: 1rem;
+    color: #e0f7fa;
+}
+
+/* Responzivnost */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-info, .footer-links, .footer-about {
+        max-width: 100%;
+    }
+
+    .footer-logo img {
+        max-width: 120px;
+    }
+}
+
+
+/*Traka iznada nav bara */
+
+.marquee-banner {
+    background: linear-gradient(to right, #0f4c81, #1976d2); 
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 6px 0;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+
+.marquee-content {
+    display: flex;
+    gap: 50px; 
+    animation: scrollMarquee 100s linear infinite;
+    width: max-content;
+}
+
+
+.marquee-content span {
+    white-space: nowrap;
+}
+
+
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/*Responzivnost te gornje trake*/
+@media (max-width: 768px) {
+    .marquee-banner {
+        font-size: 0.85rem;
+        padding: 4px 0;
+    }
+
+    .marquee-content {
+        gap: 30px; 
+        animation-duration: 60s;  
+    }
+}
+
+
+/*Back to top dugme*/
+
+.back-to-top-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 75px;
+    height: 75px;
+    background: linear-gradient(135deg, #0f4c81, #1976d2);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.back-to-top-btn i {
+    font-size: 2.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+.back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+
+.back-to-top-btn:hover {
+    background: linear-gradient(135deg, #1976d2, #4dd0e1);
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+
+.back-to-top-btn:hover i {
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+/* Animacija pri pojavljivanju dugmeta */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responzivnost  back to top dugmeta */
+
+@media (max-width: 768px) {
+    .back-to-top-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .back-to-top-btn i {
+        font-size: 2rem;
+    }
+}
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+    width: 16px; 
+    background: #f0f0f0; 
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #005792, #4ca1af); 
+    border-radius: 8px; 
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #004071, #005792); 
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.3); 
+}
+
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, #ffffff, #eaf4f9); 
+    border-radius: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*About komplet sekcija*/
+
+/* Uvodna sekcija */
+
+.about-page-hero {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    background: url('Sve Slike/Slike bas gotove za website/About hero pozadina 021.jpg') center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+
+.about-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.about-hero-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+    color: white;
+    flex-direction: column;
+    margin-left: -45%;
+}
+
+.about-hero-left {
+    flex: 1;
+    max-width: 485px;
+    text-align: center;
+    animation: fadeInLeft 1s ease-in-out;
+    margin-top: -10%;
+}
+
+.about-hero-left h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #f1f1f1;
+}
+
+.about-hero-left p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+.about-hero-btn-container {
+    text-align: center; 
+    margin-top: 20px;  
+    animation: fadeInUp 1s ease-in-out; 
+}
+
+.about-cta-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #4dd0e1;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.about-cta-btn:hover {
+    background: #0288d1;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Animacije */
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responzivnost za telefone */
+
+@media (max-width: 768px) {
+
+    .about-page-hero {
+        background-image: url('Sve Slike/Slike bas gotove za website/About hero pozadina.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 60px 20px;  
+    }
+    
+    .about-hero-container {
+        flex-direction: column;
+        max-width: 90%;  
+        margin: 0 auto;
+    }
+
+    .about-hero-left {
+        max-width: 100%;  
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        padding: 15px 15px;  
+    }
+
+    .about-hero-left h1 {
+        font-size: 2.5rem;
+        margin-top: -30%;
+        margin-bottom: 60%;
+    }
+
+    .about-hero-left p {
+        font-size: 1.3rem;  
+        line-height: 1.8;
+    }
+
+    .about-cta-btn {
+        width: 100%; 
+        padding: 15px 25px;
+    }
+}
+
+/* Responzivnost za veće ekrane (npr. 27 inča i više) */
+
+@media (min-width: 1600px) {
+    .about-page-hero {
+        background-size: cover;
+        background-position: center;
+        padding: 80px 15%;
+        min-height: 100vh; 
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .about-hero-container {
+        max-width: 1600px;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transform: translateX(-15%);
+    }
+
+    .about-hero-left {
+        max-width: 50%;
+        text-align: center;  
+    }
+
+    .about-hero-left h1 {
+        font-size: 4rem;  
+        margin-bottom: 30px;
+    }
+
+    .about-hero-left p {
+        font-size: 1.8rem;
+        line-height: 2;
+    }
+
+    .about-hero-btn-container {
+        margin-top: 30px;  
+        text-align: center;  
+    }
+
+    .about-cta-btn {
+        font-size: 1.5rem;
+        padding: 20px 50px;
+    }
+}
+
+/*About sekcija 2 teksta */
+
+.about-page-info {
+    padding: 80px 50px;
+    background: linear-gradient(to right, #e6f3fc, #add8fc);
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.about-page-info::before, .about-page-info::after {
+    content: '';
+    position: absolute;
+    background: rgba(30, 94, 233, 0.2);
+    border-radius: 50%;
+    animation: floating 6s infinite ease-in-out;
+}
+
+.about-page-info::before {
+    top: -40px;
+    left: -40px;
+    width: 200px;
+    height: 200px;
+}
+
+.about-page-info::after {
+    bottom: -40px;
+    right: -40px;
+    width: 150px;
+    height: 150px;
+}
+
+.about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #0d47a1;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about-text-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: stretch;
+    align-items: center;
+}
+
+.about-text-block {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    max-width: 500px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInLeft 1.5s ease-in-out;
+    text-align: center;
+}
+
+.about-text-block:hover {
+    transform: translateY(-10px);
+}
+
+.highlight-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1565c0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.highlight-text1 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1565c0;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.accent-text {
+    color: #42a5f5;
+    font-weight: bold;
+}
+
+.italic-text {
+    font-style: italic;
+    color: #1976d2;
+}
+
+h3 i {
+    margin-right: 10px;
+    color: #0d47a1;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes floating {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }
+}
+
+/* Početno stanje - sekcija je nevidljiva i pomerena nadole */
+.reveal {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+/* Kada se pojavi u viewportu */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .about-text-wrapper {
+        flex-direction: column;
+    }
+    .about-text-block {
+        width: 100%;
+        padding: 30px;
+    }
+    .about-title {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+/*Jelena sekcija  */
+
+.personal-intro-modern {
+    position: relative;
+    background: url('SVE Slike/Slike bas gotove za website/Jelena background.jpg') no-repeat center center/cover;
+    background-size: cover;
+    padding: 80px 0;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+.personal-intro-modern .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 30, 60, 0.7);
+    backdrop-filter: blur(6px); 
+    z-index: 0;
+}
+
+
+.content-wrapper.small {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 0 30px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+.image-area {
+    position: relative;
+    text-align: center;
+}
+
+.personal-photo.small-photo {
+    max-width: 250px;
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.personal-photo.small-photo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+
+.agent-name.small-text, 
+.agent-title.small-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 15px;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+}
+
+.agent-name.small-text:hover, 
+.agent-title.small-text:hover {
+    color: #1e90ff; 
+}
+
+.text-area.small-text {
+    max-width: 500px;
+    color: #dbeafe; 
+}
+
+.title.small-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #1e90ff; 
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.intro-text.small-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #cbd5e1; 
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.intro-text.small-text:hover {
+    transform: translateY(-5px);
+}
+
+
+.reveal {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+
+@media (max-width: 768px) {
+    .content-wrapper.small {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .personal-photo.small-photo {
+        max-width: 80%;
+    }
+
+    .title.small-title {
+        font-size: 2rem;
+    }
+
+    .intro-text.small-text {
+        font-size: 1.1rem;
+    }
+}
+
+
+
+/*About value sekcija*/
+
+.about-values {
+    position: relative;
+    padding: 100px 80px;
+    background: url('Sve Slike/Slike bas gotove za website/About values.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.values-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.values-content {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    z-index: 2;
+    animation: slideUp 1.5s ease-in-out;
+}
+
+.values-title {
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 15px rgba(0,0,0,0.5);
+    animation: glow 2s infinite alternate;
+}
+
+.values-text {
+    margin-top: 40px;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    text-shadow: 1px 1px 10px rgba(0,0,0,0.3);
+    color: #e0f7fa;
+}
+
+.highlight {
+    font-weight: 700;
+    color: #4dd0e1;
+    font-size: 1.9rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #4dd0e1; }
+    to { text-shadow: 0 0 20px #ffffff; }
+}
+
+.about-values {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.about-values.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .about-values {
+        padding: 100px 30px;
+    }
+    .values-title {
+        font-size: 3rem;
+    }
+    .values-text {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Price css html komplet*/
+
+
+/*Kosten komplet sekcija*/
+
+.price-hero {
+    position: relative;
+    width: 100%;
+    min-height: 90vh; 
+    background: url('SVE Slike/Slike bas gotove za website/price background.jpg');
+    background-size: cover;
+    background-position: right;
+    color: white;
+    display: flex;
+    align-items: flex-start; 
+    justify-content: left;
+    text-align: center;
+    padding: 3% 8%; 
+}
+
+.price-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.price-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px; 
+    margin-top: 5%; 
+}
+
+.price-hero-content h1 {
+    font-size: 3rem; 
+    font-weight: 700;
+    margin-bottom: 1rem; 
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.price-hero-content p {
+    font-size: 1.4rem; 
+    line-height: 1.6;
+    margin-bottom: 1.5rem; 
+    color: #e0f7fa;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.price-hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; 
+    margin-top: 1.5rem; 
+    animation: fadeInLeft 1s ease-in-out;
+}
+
+.price-btn {
+    padding: 0.8rem 1.5rem; 
+    border-radius: 40px; 
+    font-size: 1rem; 
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.price-btn.primary {
+    background-color: #0288d1;
+    color: white;
+}
+
+.price-btn.primary:hover {
+    background-color: #4dd0e1;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .price-hero {
+        background-position: 75% center; 
+    }
+
+    .price-hero-content h1 {
+        font-size: 2rem; 
+        margin-bottom: 10rem;
+    }
+    .price-hero-content p {
+        font-size: 1rem; 
+        margin-bottom: 3.5rem;
+    }
+    .price-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.6rem 1rem; 
+    }
+}
+
+
+@media (min-width: 1600px) {
+    .price-hero {
+        background-size: cover; 
+        background-position: 50% 20%; 
+        padding: 5% 10%; 
+    }
+
+    .price-hero-content {
+        max-width: 800px; 
+        margin-top: 2%;
+        margin-left: -5%;
+    }
+
+    .price-hero-content h1 {
+        font-size: 4rem; 
+        margin-bottom: 2rem;
+        text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7); 
+    }
+
+    .price-hero-content p {
+        font-size: 1.8rem; 
+        line-height: 2; 
+        margin-bottom: 2.5rem;
+        color: #e0f7fa; 
+    }
+
+    .price-btn {
+        padding: 1rem 2rem; 
+        font-size: 1.4rem; 
+        border-radius: 50px; 
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); 
+    }
+
+    .price-btn.primary:hover {
+        transform: scale(1.1); 
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); 
+    }
+}
+
+
+
+
+/* Poboljšana pricing sekcija */
+
+.pricing-section {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s ease-out;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: stretch; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Stilizacija svake pricing kartice */
+
+.pricing-box {
+    background: #fff;
+    padding: 35px 10px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-width: 560px; 
+    max-width: 560px; 
+    flex: 1 1 48%; 
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Efekat lebdenja */
+.pricing-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Naslovi */
+.pricing-title {
+    font-size: 2rem;
+    color: #1e3c72;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.pricing-subtitle {
+    font-size: 1.4rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Lista detalja */
+.pricing-details {
+    list-style: none;
+    padding: 0;
+}
+
+.pricing-details li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Ukupni troškovi */
+.pricing-total {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #d9534f;
+    margin-top: 15px;
+    border-top: 2px solid #d9534f;
+    padding-top: 12px;
+}
+
+/* Konačna cena */
+.final-total {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #28a745;
+    margin-top: 15px;
+    border-top: 2px solid #28a745;
+    padding: 15px 20px;
+    text-align: center;
+    background: rgba(40, 167, 69, 0.1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.full-width {
+    width: 100%;
+    max-width: 96%;
+}
+
+
+@media (max-width: 1024px) {
+    .pricing-box {
+        flex: 1 1 100%; 
+        max-width: 100%;
+    }
+
+    .pricing-details li {
+        font-size: 1.1rem;
+        padding: 10px 12px;
+    }
+
+    .pricing-title {
+        font-size: 1.8rem;
+    }
+
+    .pricing-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+/* stil za mobilne telefone */
+
+@media (max-width: 768px) {
+    .pricing-section {
+        padding: 40px 15px;
+    }
+
+    .pricing-box {
+        padding: 25px;
+        min-width: auto;
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    .pricing-title {
+        font-size: 1.4rem;
+    }
+
+    .pricing-subtitle {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .pricing-details li {
+        font-size: 0.9rem;
+        padding: 6px 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        white-space: nowrap; 
+        gap: 3px; 
+    }
+
+    .pricing-details li span {
+        display: inline-block;
+        white-space: nowrap; 
+    }
+    .pricing-details li span:last-child {
+        min-width: 80px; 
+        text-align: center; 
+    }
+
+    .final-total {
+        font-size: 1.1rem;
+        padding: 10px 15px;
+    }
+}
+
+
+
+/*Brzi kontakt sekcija*/
+
+.quick-contact {
+    position: relative;
+    background: url('SVE Slike/Slike bas gotove za website/brza 021.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 120px 30px; 
+    margin-top: 0;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1.5s ease-in-out;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.quick-contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 50, 100, 0.5); 
+}
+
+
+.quick-contact-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px; 
+    margin: 0 auto;
+}
+
+
+.quick-contact-title {
+    font-size: 2.5rem; 
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.quick-contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(77, 208, 225, 0.9);
+    color: white;
+    font-size: 1.5rem; 
+    font-weight: bold;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 6px 15px rgba(77, 208, 225, 0.5);
+}
+
+
+.quick-contact-button:hover {
+    background: rgba(2, 136, 209, 0.9);
+    transform: scale(1.08);
+    box-shadow: 0px 8px 20px rgba(2, 136, 209, 0.7);
+}
+
+
+@media (max-width: 768px) {
+    .quick-contact {
+        padding: 80px 15px;
+    }
+
+    .quick-contact-title {
+        font-size: 2rem;
+    }
+
+    .quick-contact-button {
+        font-size: 1.2rem;
+        padding: 14px 30px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Reviews sekcija kompletna*/
+
+
+/*Reviews hero sekcija*/
+
+
+.reviews-hero {
+    position: relative;
+    width: 100%;
+    min-height: 90vh;
+    background: url('SVE Slike/Slike bas gotove za website/022.jpg') no-repeat;
+    background-size: cover;
+    background-position:left;
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    text-align: center;
+    padding: 3% 8%;
+}
+
+.reviews-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.reviews-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-top: 5%;
+}
+
+.reviews-hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.reviews-hero-content p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #e0f7fa;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.reviews-hero-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #0288d1;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    animation: fadeInLeft 1s ease-in-out;
+}
+
+.reviews-hero-btn:hover {
+    background: #4dd0e1;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responzivnost */
+@media (max-width: 768px) {
+    .reviews-hero {
+        background-position: 51% center;
+    }
+
+    .reviews-hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 60%;
+    }
+    .reviews-hero-content p {
+        font-size: 1rem;
+    }
+    .reviews-hero-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.6rem 1rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .reviews-hero {
+        background-size: cover;
+        background-position: left;
+        padding: 5% 10%;
+    }
+
+    .reviews-hero-content {
+        max-width: 800px;
+        margin-top: 2%;
+        margin-left: -5%;
+    }
+
+    .reviews-hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .reviews-hero-content p {
+        font-size: 1.8rem;
+        line-height: 2;
+        margin-bottom: 2.5rem;
+        color: #e0f7fa;
+    }
+
+    .reviews-hero-btn {
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+        border-radius: 50px;
+    }
+}
+
+
+/*Ocene korisnika sekcija*/
+.reviews-section {
+    background: url('SVE Slike/Slike bas gotove za website/recenzije 021 pozadina .png') center/cover no-repeat;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.reviews-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+.reviews-title, .reviews-subtitle, .review-text, .review-name, .review-location {
+    position: relative;
+    color: white;
+    z-index: 2;
+}
+.reviews-title {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.reviews-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    font-weight: 500;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.reviews-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.review-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    max-width: 480px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    backdrop-filter: blur(30px);
+}
+.review-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+.review-text {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    font-style: italic;
+    line-height: 1.6;
+}
+.review-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.review-location {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+/*Kratka prica za reviews*/
+
+.testimonial-story {
+    background: linear-gradient(to right, #eef5ff, #d4e3f7);
+    padding: 80px 50px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    margin-top: 60px;
+    margin-top: 0;
+}
+
+.story-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.story-text {
+    max-width: 50%;
+    text-align: left;
+}
+
+.story-title {
+    font-size: 2.8rem;
+    color: #013a75;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.story-description {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 500;
+    max-width: 100%;
+}
+
+.story-highlight {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #013a75;
+    margin-top: 25px;
+    font-style: italic;
+    border-left: 4px solid #013a75;
+    padding-left: 15px;
+}
+
+.story-image {
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.story-image img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+    .story-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .story-text, .story-image {
+        max-width: 100%;
+    }
+    .story-text {
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Fragen stranica*/
+
+
+/* Hero sekcija za Fragen und Antworten - Tamni overlay za bolju čitljivost */
+.faq-hero {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    background: url('SVE Slike/Slike bas gotove za website/question1.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 100px 20px;
+    overflow: hidden; 
+}
+
+.faq-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: 1;
+}
+
+
+.faq-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+
+.faq-hero-content h1 {
+    font-size: 3.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.8); 
+}
+
+
+.faq-hero-content p {
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: #e0f7fa;
+    margin-bottom: 35px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+
+.faq-btn {
+    display: inline-block;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, #0288d1, #4dd0e1);
+    color: white;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(2, 136, 209, 0.4);
+}
+
+.faq-btn:hover {
+    background: linear-gradient(135deg, #4dd0e1, #0288d1);
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 30px rgba(2, 136, 209, 0.6);
+}
+
+
+.faq-section {
+    padding: 120px 20px;
+    background-color: #f5fafd;
+    text-align: center;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .faq-hero {
+        min-height: 60vh;
+    }
+    .faq-hero-content h1 {
+        font-size: 2.8rem;
+    }
+    .faq-hero-content p {
+        font-size: 1.4rem;
+    }
+    .faq-btn {
+        font-size: 1.2rem;
+        padding: 14px 30px;
+    }
+}
+
+/* 🔹 Optimizacija za monitore 27 inča i veće (1600px+) */
+@media (min-width: 1600px) {
+    .faq-hero {
+        min-height: 90vh; 
+        padding: 140px 10%;
+    }
+
+    .faq-hero-content {
+        max-width: 1000px; 
+    }
+
+    .faq-hero-content h1 {
+        font-size: 4.5rem; 
+        letter-spacing: 2.5px;
+        text-shadow: 3px 3px 18px rgba(0, 0, 0, 0.9);
+    }
+
+    .faq-hero-content p {
+        font-size: 2rem; 
+        line-height: 1.8;
+        margin-bottom: 50px;
+    }
+
+    .faq-btn {
+        font-size: 1.6rem;
+        padding: 20px 50px; 
+        box-shadow: 0px 12px 30px rgba(2, 136, 209, 0.5);
+    }
+
+    .faq-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 18px 40px rgba(2, 136, 209, 0.7);
+    }
+}
+
+
+
+/*Sekcija sa pitanjima*/
+
+.faq-section {
+    padding: 100px 20px;
+    background: url('SVE Slike/Slike bas gotove za website/question2.jpg') no-repeat center center/cover;
+    background-size: cover;
+    background-attachment: fixed; /* Efekat parallax */
+}
+
+.faq-container {
+    max-width: 900px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    margin: auto;
+}
+
+
+.faq-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #013a75;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.faq-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #555;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, padding 0.3s ease-in-out;
+    color: #013a75;
+}
+
+.faq-question:hover {
+    background: rgba(0, 136, 204, 0.1);
+    padding-left: 25px;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 25px;
+    font-size: 1.6rem;
+    color: #333;
+    border-top: 2px solid #ddd;
+    background: #ffffff;
+    line-height: 1.8; 
+    border-radius: 0 0 12px 12px;
+    box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.05);
+    transition: max-height 0.5s ease-in-out, padding 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.faq-item.active .faq-answer {
+    padding: 25px 30px;
+    background: rgba(2, 136, 209, 0.07);
+    border-radius: 0 0 12px 12px;
+    box-shadow: inset 0px 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.faq-answer p {
+    margin: 15px 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #222;
+    text-align: justify;
+}
+
+.faq-question .icon {
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    color: #0288d1;
+    margin-left: 15px;
+}
+
+.faq-item.active .faq-question .icon {
+    transform: rotate(180deg);
+    color: #d32f2f;
+}
+
+
+@media (max-width: 768px) {
+    .faq-title {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .faq-subtitle {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    .faq-question {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+    .faq-answer {
+        font-size: 1.4rem;
+        padding: 20px;
+        text-align: center;
+    }
+    .faq-answer p {
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*Kontakt sekcija*/
+
+.contact-section {
+    background: url('SVE Slike/Slike bas gotove za website/contact21.jpg') no-repeat center center/cover;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-bg {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+.contact-title {
+    font-size: 2.8rem;
+    color: #013a75;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.contact-subtitle {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #013a75;
+}
+
+.contact-form input, .contact-form select, .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #f9f9f9;
+}
+
+.custom-select-wrapper {
+    position: relative;
+}
+
+.custom-select {
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="%23013a75"><path d="M7 10l5 5 5-5H7z"/></svg>') no-repeat right 10px center;
+    background-size: 20px;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+.contact-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #0288d1, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.contact-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #0288d1);
+    transform: scale(1.05);
+}
+
+.contact-section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.contact-section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+ /* Responzivnost za mobilne uređaje */
+ @media (max-width: 768px) {
+    .contact-bg {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .contact-title {
+        font-size: 2.2rem;
+    }
+
+    .contact-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .contact-btn {
+        font-size: 18px;
+    }
+}
+
+/* Responzivnost za monitore veće od 27 inča */
+@media (min-width: 1920px) {
+    .contact-bg {
+        max-width: 1000px;
+        padding: 70px;
+    }
+
+    .contact-title {
+        font-size: 4rem;
+    }
+
+    .contact-subtitle {
+        font-size: 1.8rem;
+    }
+
+    .contact-btn {
+        font-size: 24px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/*Job html sekcija komplet*/
+
+.career-section {
+    padding: 80px 15px;
+    background: linear-gradient(135deg, #e3f2fd, #90caf9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.career-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+.career-title {
+    font-size: 3.5rem;
+    color: #1565c0;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1.2px;
+    animation: fadeIn 1s ease-out;
+}
+
+.career-subtitle {
+    font-size: 1.6rem;
+    color: #0d47a1;
+    max-width: 750px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    padding: 0 15px;
+    animation: fadeIn 1.2s ease-out;
+}
+
+.career-benefits h3 {
+    font-size: 2.5rem;
+    color: #1e88e5;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeIn 1.4s ease-out;
+}
+
+.career-benefits ul {
+    list-style: none;
+    padding: 0;
+    color: #0d47a1;
+    font-size: 1.4rem;
+    max-width: 750px;
+    margin: 0 auto 40px;
+    text-align: left;
+    animation: fadeIn 1.6s ease-out;
+}
+
+.career-benefits li {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.career-benefits li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.career-form {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    max-width: 750px;
+    width: 100%;
+    margin-top: 50px;
+    animation: fadeIn 2s ease-out;
+}
+
+.career-form h3 {
+    font-size: 2.5rem;
+    color: #1565c0;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0d47a1;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #1e88e5;
+    outline: none;
+    box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
+}
+
+.career-btn {
+    padding: 15px 35px;
+    background-color: #1565c0;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    width: 100%;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.career-btn:hover {
+    background-color: #0d47a1;
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+
+.birthdate-wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    max-width: 100%;
+    margin-top: 5px;
+}
+
+
+.birthdate-wrapper select {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.birthdate-wrapper select:focus {
+    border-color: #1565c0;
+    box-shadow: 0 0 10px rgba(21, 101, 192, 0.3);
+}
+
+
+/* Sprečava fullscreen prikaz dropdowna na mobilnim uređajima */
+@media (max-width: 768px) {
+    .birthdate-wrapper select {
+        font-size: 1rem;
+        padding: 8px;
+        min-width: 80px;
+        max-width: 120px;
+    }
+}
+
+/* Sprečava da dropdown ide preko celog ekrana na mobilnim uređajima */
+select {
+    -webkit-appearance: none; /* Safari */
+    -moz-appearance: none; /* Firefox */
+    appearance: none; /* Uklanja default stilizaciju */
+}
+
+/* Stilizacija career-sekcije */
+.career-section {
+    padding: 80px 15px;
+    background: linear-gradient(to right, #e3f2fd, #90caf9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.career-container {
+    max-width: 900px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.career-title {
+    font-size: 3rem;
+    color: #1565c0;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.career-subtitle {
+    font-size: 1.5rem;
+    color: #0d47a1;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.career-benefits ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.career-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.career-form {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #90caf9;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.career-btn {
+    background: #1565c0;
+    color: white;
+    font-size: 1.2rem;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.career-btn:hover {
+    background: #0d47a1;
+}
+
+/* Responzivnost */
+
+@media (max-width: 768px) {
+
+    .career-form h3 {
+        font-size: 1.8rem;
+        text-align: center;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        line-height: 1.2;
+    }
+
+    .career-container {
+        padding: 20px;
+    }
+
+    .career-title {
+        font-size: 2.5rem;
+    }
+
+    .career-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .career-benefits li {
+        font-size: 1.2rem;
+    }
+
+    .career-btn {
+        font-size: 1rem;
+    }
+
+    .birthdate-wrapper select {
+        font-size: 1rem;
+        min-width: 80px;
+        max-width: 110px;
+    }
+    
+    select::-webkit-scrollbar {
+        width: 8px; 
+    }
+
+    select::-webkit-scrollbar-thumb {
+        background-color: #1565c0; 
+        border-radius: 5px;
+    }
+
+    select::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+/*Modal za job sekciju*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.close-custom-modal {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #999;
+}
+
+.close-custom-modal:hover {
+    color: #333;
+}
+
+.modal-button {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 15px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modal-button:hover {
+    background: #0056b3;
+}
+
+/* Responzivnost za mobilne uređaje (do 768px) */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        max-width: 350px;
+        padding: 20px;
+    }
+
+    .modal-content h3 {
+        font-size: 20px;
+    }
+
+    .modal-content p {
+        font-size: 14px;
+    }
+
+    .modal-button {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+
+    .close-custom-modal {
+        font-size: 18px;
+    }
+}
+
+/* Responzivnost za velike ekrane (27+ inča) */
+@media (min-width: 1600px) {
+    .modal-content {
+        max-width: 600px;
+        padding: 40px;
+    }
+
+    .modal-content h3 {
+        font-size: 28px;
+    }
+
+    .modal-content p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    .modal-button {
+        font-size: 18px;
+        padding: 14px 28px;
+    }
+
+    .close-custom-modal {
+        font-size: 24px;
+    }
+}
+
+
+
+/*Modul za contact formu */
+
+.custom-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-btn {
+    background: #0288d1;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.modal-btn:hover {
+    background: #026bb0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html {
+    scroll-behavior: smooth;
+}
