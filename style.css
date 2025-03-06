@@ -1047,7 +1047,7 @@ li{
     position: relative;
     width: 100%;
     min-height: 90vh;
-    background: url('/SVE Slike/Slike bas gotove za website/About hero pozadina 021.jpg') center;
+    background: url('About hero pozadina 021.jpg') center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1520,7 +1520,7 @@ h3 i {
 .about-values {
     position: relative;
     padding: 100px 80px;
-    background: url('Sve Slike/Slike bas gotove za website/About values.jpg') no-repeat center center/cover;
+    background: url('recenzije 021 pozadina.png') no-repeat center center/cover;
     color: white;
     text-align: center;
     overflow: hidden;
